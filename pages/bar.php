@@ -136,7 +136,7 @@
                             <h3 class="text-center">Curso</h3>
                         </div>
                         <div>
-                            <svg id="barchart" width="875" height="350"></svg>
+                            <svg id="barchart" width="500" height="420" style="background-color:white"></svg>
                         </div>
                     </div>
                 </div>

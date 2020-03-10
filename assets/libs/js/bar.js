@@ -16,13 +16,13 @@ var locale = d3.timeFormatLocale({
 	"time": "%H:%M:%S",
 	"periods": ["AM", "PM"],
 	"days": ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
-	"shortDays": ["Dom", "Lun", "Mar", "Mi", "Jue", "Vie", "Sab"],
+	"shortDays": ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
 	"months": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
 	"shortMonths": ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
 });
 
 var parseDate = d3.timeParse("%Y-%m-%d");
-var formatDate = locale.format("%A %d %b");
+var formatDate = locale.format("%a %d %b");
 
 var formatMillisecond = locale.format(".%L"),
     formatSecond = locale.format(":%S"),
@@ -41,7 +41,7 @@ g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.
 
 var x = d3.scaleBand()
 	.rangeRound([0, width])
-	.padding(0.1);
+	.padding(0.15);
 
 var y = d3.scaleLinear()
 	.rangeRound([height, 0]);
@@ -87,6 +87,8 @@ d3.json(newLocal).then(function(data){
 	.attr("y", -45)
 	.attr("dy", "0.71em")
 	.attr("text-anchor", "end")
+	.attr("font-size", "12px")
+	.attr("font-family", "sans-serif") 
 	.text("Cantidad de visitas");
 
 	g.selectAll(".bar")

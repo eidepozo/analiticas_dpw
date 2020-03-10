@@ -16,3 +16,8 @@
     padding: 14px;
     text-align: center;
 }
+
+.tick {
+  font: 14px Circular Std Book;
+  color: #333;
+}
