@@ -139,7 +139,7 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <h3 class="text-center">Curso</h3>
                         </div>
-                        <div class="piechart" id="rightchart"></div>
+                        <div class="piechart" id="rightchart" style="background-color:white"></div>
                     </div>
                 </div>
             </div>  <!-- ============================================================== -->

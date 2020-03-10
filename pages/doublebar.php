@@ -142,7 +142,7 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <h3 class="text-center">Curso</h3>
                         </div>
-                        <div class="stackedBar" id="my_dataviz"></div>
+                        <div class="stackedBar" id="my_dataviz" style="background-color:white"></div>
                         <svg id='legend'></svg>
                     </div>
                     <?php echo "<div>*Yo = user ".$_SESSION["id"]."</div>";?>

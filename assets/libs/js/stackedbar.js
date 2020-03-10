@@ -6,7 +6,7 @@
  */
 
 var margin = {top: 10, right: 30, bottom: 20, left: 50},
-    width = 460 - margin.left - margin.right,
+    width = 541 - margin.left - margin.right, //460
     height = 425 - margin.top - margin.bottom;
 
 var svg = d3.select("#my_dataviz")
@@ -23,6 +23,24 @@ var users = new Array();
 
 var idcourse = document.getElementById("course").value;
 
+var locale = d3.timeFormatLocale({
+	"decimal": ",",
+	"thousands": ".",
+	"grouping": [3],
+	"currency": ["€", ""],
+	"dateTime": "%a %b %e %X %Y",
+	"date": "%d/%m/%Y",
+	"time": "%H:%M:%S",
+	"periods": ["AM", "PM"],
+	"days": ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+	"shortDays": ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
+	"months": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+	"shortMonths": ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
+});
+
+var parseDate = d3.timeParse("%Y-%m-%d");
+var formatDate = locale.format("%a %d %b");
+
 var newLocal2 = "../services/logs2.php?course="+idcourse;
 d3.json(newLocal2).then(function(data){
     var sample = new Array();
@@ -30,6 +48,7 @@ d3.json(newLocal2).then(function(data){
       if(!users.includes('user ' +d.userid)){
         users.push('user ' + d.userid)
       };
+      d.fecha = formatDate(parseDate(d.fecha));
       if(!udates.includes(d.fecha)){
         var nentry = new Object();
         udates.push(d.fecha); 
@@ -48,7 +67,7 @@ d3.json(newLocal2).then(function(data){
   var subgroups = users;
 
   var groups = udates;
-
+  
   var x = d3.scaleBand()
       .domain(groups)
       .range([0, width])
@@ -65,9 +84,7 @@ d3.json(newLocal2).then(function(data){
 
   var color = d3.scaleOrdinal()
     .domain(subgroups)
-    .range(["#2d132c", "#801336", "#ee4540","#004a2f", "#002f35", 
-"#ffa323", "#735372", "#8adfdc","#a34a28","#553c8b"])
-//
+    .range(["#4682B4", "#496B87", "#174A75","#76ACDA", "#FFD8A2"])
   
   var legend = d3.legendColor()
     .shapeWidth(70)

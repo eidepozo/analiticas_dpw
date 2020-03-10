@@ -87,9 +87,9 @@ d3.json(newLocal).then(function(data){
 	.attr("y", -45)
 	.attr("dy", "0.71em")
 	.attr("text-anchor", "end")
-	.attr("font-size", "12px")
-	.attr("font-family", "sans-serif") 
-	.text("Cantidad de visitas");
+	.attr("font-size", "14px")
+	.attr("font-family", "Circular Std Book")
+	.text("Número de visitas");
 
 	g.selectAll(".bar")
 	.data(sample)
@@ -110,7 +110,7 @@ d3.json(newLocal).then(function(data){
 		  .style("left", d3.event.pageX - 50 + "px")
 		  .style("top", d3.event.pageY - 70 + "px")
 		  .style("display", "inline-block")
-		  .html("Cantidad de visitas: " + (d.total));
+		  .html("Número de visitas: " + (d.total));
 	})
 		.on("mouseout", function(d){ tooltip.style("display", "none");});
 });
